@@ -25,11 +25,12 @@ const connectToMongo = async () => {
 
 connectToMongo().then(() => {
   app.listen(8080, () => {
-    console.log('Servidor corriendo en el puerto 3000');
+    console.log('Servidor corriendo en el puerto 8080');
   });
 });
 
 app.post('/users', async (req, res, next) => {
+    console.log('--->', req.body)
     try {
         const newUser = req.body
         const collection = db.collection('users');
