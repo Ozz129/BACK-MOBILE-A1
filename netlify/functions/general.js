@@ -14,12 +14,12 @@ exports.handler = async (event, context) => {
   const { type } = event.queryStringParameters;
 
   const collection = db.collection('general');
-  const results = await collection.findOne({ type });
+  const results = await collection.find({ type }).toArray();
 
   if (!results) {
     return {
       statusCode: 404,
-      body: JSON.stringify({ message: 'Contenido no encontrado' })
+      body: JSON.stringify({ msg: 'Contenido no encontrado' })
     };
   }
 

@@ -19,7 +19,7 @@ exports.handler = async (event, context) => {
   if (!results || results.password !== password) {
     return {
       statusCode: 404,
-      body: JSON.stringify({ message: 'Usuario o contraseña incorrectos.' })
+      body: JSON.stringify({ msg: 'Usuario o contraseña incorrectos.' })
     };
   }
 
